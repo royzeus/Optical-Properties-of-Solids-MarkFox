@@ -1,0 +1,135 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+
+\documentclass[12pt]{book} % use larger type; default would be 10pt
+
+\usepackage{fontspec} % Font selection for XeLaTeX; see fontspec.pdf for documentation
+\defaultfontfeatures{Mapping=tex-text} % to support TeX conventions like ``---''
+\usepackage{xunicode} % Unicode support for LaTeX character names (accents, European chars, etc)
+\usepackage{xltxtra} % Extra customizations for XeLaTeX
+
+\setmainfont{Adobe Song Std} % set the main body font (\textrm), assumes Charis SIL is installed
+%\setsansfont{Deja Vu Sans}
+%\setmonofont{Deja Vu Mono}
+
+% other LaTeX packages.....
+\usepackage{geometry} % See geometry.pdf to learn the layout options. There are lots.
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+%\usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+\title{Fundamental of Opto-Electronics}
+\author{Jiaguang Han}
+
+\begin{document}
+
+\maketitle
+
+\chapter{Introduction}
+
+\section{Maxwell}
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  \nabla\times\mathbf{E} &=& -\frac{\partial\mathbf{B}}{\partial t} \\
+  \nabla\times\mathbf{H} &=& \mathbf{J}+\frac{\partial\mathbf{D}}{\partial t} \\
+  \nabla\cdot\mathbf{B} &=& 0 \\
+  \nabla\cdot\mathbf{D} &=& \rho
+\end{eqnarray}
+
+\begin{eqnarray}
+% \nonumber to remove numbering (before each equation)
+  \oint_{loop}\mathbf{E}\cdot d\mathbf{l} &=& -\frac{\partial}{\partial t}\int_{area}\mathbf{B}\cdot d\mathbf{S} \\
+  \oint\mathbf{H}\cdot d\mathbf{l} &=& \int\mathbf{J}\cdot d\mathbf{S}+\frac{\partial}{\partial t}\int_{area}\mathbf{D}\cdot d\mathbf{S} \\
+  \oint_{surf}\mathbf{B}\cdot d\mathbf{S} &=& 0 \\
+  \oint_{surf}\mathbf{D}\cdot d\mathbf{S} &=& Q_{enclosed}
+\end{eqnarray}
+
+\begin{equation}\label{equa:lorrents}
+  F=q(\mathbf{e}+\mathbf{v}\times\mathbf{B})
+\end{equation}
+
+$\mathbf{E}$:electric field strength;$V/M$
+
+$\mathbf{D}$:electric flux density; $C/m^2$
+
+$\mathbf{H}$:magnetic field strength; $A/m$
+
+$\mathbf{B}$:magnetic flux density; $Webers/m^2$
+
+$\mathbf{J}$:electric current density; $A/m^2$
+
+$I_0$;$I_{incident},I_{reflection},I_{transmission},I_{absorption},I_{lumin},I_{scattering},I_{interference}$
+
+$\displaystyle R=\frac{|E_R|^2}{|E_0|^2}$:reflectivity, or reflectance\quad$\displaystyle T=\frac{|E_T|^2}{|E_0|^2}$:transmitivity, or transmitance
+
+$\displaystyle r=\frac{|E_R|}{|E_0|}$:reflection coefficiency\quad$\displaystyle t=\frac{|E_T|}{|E_0|}$:transmit coefficiency
+
+$\displaystyle \lambda=c/f=2\pi c/\omega; \frac{v}{c}=\frac{\lambda_1 f_1}{\lambda_0 f_0}=\frac{1}{n_1}$, so $f_0=f_1$
+
+When $l\gg l_c$,
+\begin{equation}\label{equa:trans}
+  T=\frac{(1-R_1)(1-R_2)e^{-\alpha l}}{1-R_1R_2e^{-2\alpha l}}={(1-R_1)(1-R_2)e^{-\alpha l}}\cdot{\sum_0^\infty(R_1R_2e^{-2\alpha l})^i}
+\end{equation}
+
+$I=\langle s \rangle\propto\langle \mathbf{E}\times\mathbf{H}\rangle=\frac{c}{4\pi}\sqrt{\frac{\varepsilon}{\mu}}\langle E^2 \rangle$
+
+ for $\mathbf{E}(\mathbf{r},t)=\frac{1}{2}[A(\mathbf{r})e^{-i\omega t}+A^*(\mathbf{r})e^{i\omega t}]$,$E=E_1+E_2$
+ \begin{equation}
+ I=\langle E^2 \rangle=\langle E_1^2\rangle+\langle E_2^2\rangle+2\cdot\langle E_1\cdot E_2\rangle
+ \end{equation}
+
+ if $\omega_1=\omega_2$,
+ $$\langle E_1\cdot E_2\rangle=\frac{1}{4}\langle A_1A_2^*+A_1^*A_2\rangle$$
+
+ if $A_1=a_1e^{i\phi_1},A_2=a_2e^{i\phi_2}$
+ $$\langle E_1 E_2\rangle=\frac{1}{4}[a_1a_2cos(\phi_1-\phi_2)+a_1a_2cos(\phi_2-\phi_1)]$$
+ that is to say ,for $\delta=\phi_1-\phi_2={2\pi}/{\lambda}L_c$, $\displaystyle L_c=\frac{\lambda\cdot\delta}{2\pi}$
+
+
+
+Absorption coefficiency:$\alpha$, according to \textbf{Lamb-Beer Law}:$I=I_0e^{-\alpha l}$.
+Absorb ratio: $\displaystyle A=|\frac{I_\alpha}{I_0}|=|\frac{E_\alpha}{E_0}|$
+
+\section{Polarization}
+
+$$\mathbf{H}=(-\mathbf{x}\frac{b}{\eta}e^{j\phi_b}e^{-jkz}+\mathbf{y}\frac{a}{\eta}e^{j\phi_a}e^{-jkz})e^{j\omega t}$$
+
+for $z=0$
+
+$$\mathbf{H}=(-\mathbf{x}\frac{b}{\eta}e^{j\phi_b}+\mathbf{y}\frac{a}{\eta}e^{j\phi_a})e^{j\omega t}$$
+
+\begin{eqnarray}
+  \mathbf{E} &=& (\mathbf{x}ae^{j\phi_a}+\mathbf{y}be^{j\phi_b})e^{j\omega t}  \\
+  real(\mathbf{E}) &=& \mathbf{x}a\cos(\omega t+\phi_a)+\mathbf{y}b\cos(\omega t+\phi_b)
+\end{eqnarray}
+
+for $a=b, \phi_a=\phi_b$, linear-polarization
+
+for$a=b,\phi_a-\phi_b=\pi/2$, circle-polarization
+
+\section{Material}
+
+with a $\epsilon$ and $\mu$, the material is called \textbf{isotropic};
+
+with 9$\epsilon$ and 9$\mu$, \textbf{anisotropic};
+
+with 18$\epsilon$ and 18$\mu$, \textbf{bianisotropic};
+
+with $\epsilon$, $\mu$, $\chi$, $\kappa$, \textbf{baisotropic};
+
+homogeneous: independent on $\mathbf{r}$. $\epsilon(\mathbf{r})=\epsilon_0$;
+
+linear material: $\epsilon{\mathbf{E}}=\epsilon_0=\epsilon(\mathbf{r},t)$
+
+
+
+\chapter{Classical Propagation}
+\chapter{Interband absorption}
+\chapter{Excitons}
+\chapter{Luminescence}
+\chapter{Free Electrons}
+\chapter{Phonons}
+
+
+\end{document}
